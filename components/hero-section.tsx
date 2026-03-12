@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { ArrowUpRight, MapPin } from "lucide-react"
+import { User } from "lucide-react"
 import { AgentOrchestrationDiagram } from "@/components/system-architecture-diagram"
 
 const roles = [
@@ -51,8 +51,8 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-1.5 shadow-sm backdrop-blur-md"
           >
-            <MapPin className="h-3 w-3 text-primary" />
-            <span className="font-mono text-sm tracking-wide text-muted-foreground">
+            <User className="h-3.5 w-3.5 shrink-0 text-primary" />
+            <span className="font-mono text-sm font-medium tracking-wide text-foreground">
               Juan Manuel Ciro
             </span>
           </motion.div>
