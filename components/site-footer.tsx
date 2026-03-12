@@ -13,7 +13,7 @@ export function SiteFooter() {
         className="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center"
       >
         <p className="font-mono text-xs tracking-widest text-muted-foreground/60 uppercase">
-          Built with precision
+          Building intelligent systems at scale
         </p>
 
         <div className="flex items-center gap-8">
@@ -39,19 +39,8 @@ export function SiteFooter() {
           >
             Email
           </a>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm text-muted-foreground transition-colors hover:text-primary"
-          >
-            Resume
-          </a>
-        </div>
 
-        <p className="text-xs text-muted-foreground/40">
-          Juan Manuel Ciro &mdash; Medellin, Colombia
-        </p>
+        </div>
       </motion.div>
     </footer>
   )

@@ -7,7 +7,6 @@ import { CodeBlockHero } from "@/components/code-block-hero"
 import { ExperienceSection } from "@/components/experience-section"
 import { ExpertiseTabs } from "@/components/expertise-tabs"
 import { PublicationsSection } from "@/components/publications-section"
-import { SkillsSection } from "@/components/skills-section"
 import { SiteFooter } from "@/components/site-footer"
 
 export default function Page() {
@@ -21,7 +20,6 @@ export default function Page() {
         <ExperienceSection />
         <ExpertiseTabs />
         <PublicationsSection />
-        <SkillsSection />
       </main>
       <SiteFooter />
     </div>

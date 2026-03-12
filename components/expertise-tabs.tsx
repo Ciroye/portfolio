@@ -35,7 +35,7 @@ const tabs = [
     icon: Brain,
     title: "Applied ML & Research",
     intro:
-      "Co-author of 16 papers across NeurIPS, ICML, ACL, and Nature Medicine. NeurIPS 2024 Best Paper co-author. My work spans evaluation, NLP, computer vision, and data-centric AI.",
+      "Co-author of 14 papers across NeurIPS, ICML, ACL, and Nature Medicine. NeurIPS 2024 Best Paper co-author. My work spans evaluation, NLP, computer vision, and data-centric AI.",
     bullets: [
       {
         heading: "Evaluation",
@@ -66,14 +66,14 @@ const tabs = [
       },
       {
         heading: "Backend",
-        text: "Python, Node.js, API design, service boundaries, and stateful pipelines for production workloads.",
+        text: "Python, API design, service boundaries, and stateful pipelines for production workloads.",
       },
       {
         heading: "Analytics",
         text: "End-to-end analytics platforms from data warehouse to leadership dashboards for operational intelligence.",
       },
     ],
-    tags: ["React", "Next.js", "TypeScript", "Python", "Node.js", "PostgreSQL"],
+    tags: ["React", "Next.js", "TypeScript", "Python", "PostgreSQL"],
   },
   {
     id: "infra",
@@ -100,6 +100,23 @@ const tabs = [
   },
 ]
 
+const skillGroups = [
+  { category: "Programming", skills: ["Python", "JavaScript", "TypeScript", "React", "Next.js", "SQL"] },
+  { category: "Distributed Systems & Infra", skills: ["Temporal.io", "Docker", "Kubernetes", "GCP", "AWS", "Redis", "SSE", "WebSocket"] },
+  { category: "AI / ML", skills: ["LLM Systems", "RAG", "Agentic Workflows", "NLP", "Computer Vision", "ML Infrastructure"] },
+  { category: "Observability", skills: ["Grafana", "Kibana", "Distributed Tracing", "Metrics", "Reliability Engineering"] },
+]
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+}
+
 export function ExpertiseTabs() {
   const [activeTab, setActiveTab] = useState(tabs[0].id)
   const active = tabs.find((t) => t.id === activeTab) ?? tabs[0]
@@ -115,10 +132,10 @@ export function ExpertiseTabs() {
           className="mb-8"
         >
           <p className="font-mono text-xs tracking-widest text-primary uppercase">
-            Depth by Domain
+            Depth by Domain · Toolkit
           </p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Technical Expertise
+            Technical Expertise & Skills
           </h2>
         </motion.div>
 
@@ -148,7 +165,7 @@ export function ExpertiseTabs() {
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
                   className={cn(
-                    "group relative flex flex-1 items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-all duration-300",
+                    "group relative flex flex-1 cursor-pointer items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-all duration-300",
                     roundedClass,
                     isActive
                       ? "text-foreground"
@@ -237,6 +254,39 @@ export function ExpertiseTabs() {
               </motion.div>
             </AnimatePresence>
           </div>
+
+          {/* Skills & Technologies grid */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            className="mt-4"
+          >
+            <div className="grid gap-6 sm:grid-cols-2">
+              {skillGroups.map((group) => (
+                <motion.div
+                  key={group.category}
+                  variants={itemVariants}
+                  className="rounded-xl border border-border bg-card/80 p-5 shadow-sm backdrop-blur-sm transition-colors hover:bg-card hover:border-primary/10"
+                >
+                  <h3 className="mb-3 font-mono text-xs font-semibold tracking-widest text-primary uppercase">
+                    {group.category}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {group.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-md border border-border bg-secondary/40 px-2.5 py-1 font-mono text-xs text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

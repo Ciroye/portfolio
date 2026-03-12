@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 const metrics = [
   { value: "+9 yrs", label: "Engineering Experience" },
   { value: "200K+", label: "Monthly Requests Handled" },
-  { value: "16", label: "Research Publications" },
+  { value: "14", label: "Research Publications" },
   { value: "99.98%", label: "System Reliability" },
 ]
 

@@ -9,7 +9,7 @@ const publications = [
     title: "Best Paper Award (Co-author)",
     description:
       "Recognized for outstanding contribution to the field of machine learning evaluation and data-centric AI systems.",
-    href: "https://neurips.cc/",
+    href: "https://neurips.cc/virtual/2024/oral/98025",
     highlight: true,
   },
   {
@@ -17,7 +17,7 @@ const publications = [
     title: "Nature Publication",
     description:
       "Forthcoming publication in Nature on AI systems and their applications in scientific research.",
-    href: "https://www.nature.com/",
+    href: "https://www.nature.com/articles/s41591-025-04074-y",
     highlight: false,
   },
   {
@@ -40,13 +40,13 @@ const publications = [
     venue: "NeurIPS 2021",
     title: "Data-Centric AI Workshop",
     description:
-      "Improving ML outcomes through data quality and process innovation in the data-centric AI ecosystem.",
+      "LSH methods for data deduplication in a Wikipedia artificial dataset",
     href: "https://www.datacentricai.org/neurips21/",
     highlight: false,
   },
   {
-    venue: "ICML + Nature Medicine",
-    title: "16 Publications Total",
+    venue: "ICML, NeurIPS, ACL",
+    title: "14 Publications Total",
     description:
       "Spanning evaluation, NLP, computer vision, and AI systems across top-tier venues.",
     href: "https://scholar.google.com/citations?view_op=list_works&hl=en&user=dOXuJdQAAAAJ",
@@ -108,12 +108,10 @@ export function PublicationsSection() {
               transition={{ duration: 0.2 }}
               className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
             >
-              {paper.highlight && (
-                <div className="absolute top-0 right-0 left-0 h-[2px] bg-gradient-to-r from-primary via-accent to-primary" />
-              )}
-
               <div className="mb-3 flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-secondary/50 px-2.5 py-1 font-mono text-[10px] font-semibold tracking-wider text-foreground uppercase">
+                <span
+                  className={`inline-flex items-center gap-1.5 rounded-md border border-border px-2.5 py-1 font-mono text-[10px] font-semibold tracking-wider text-foreground uppercase ${paper.highlight ? "bg-transparent" : "bg-secondary/50"}`}
+                >
                   {paper.highlight && <Award className="h-3 w-3 text-primary" />}
                   {paper.venue}
                 </span>

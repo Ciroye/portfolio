@@ -1,15 +1,17 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Building2, Calendar, ChevronRight, ExternalLink } from "lucide-react"
+import { Building2, Calendar, ChevronRight } from "lucide-react"
 
 const experience = [
   {
     company: "Contextual AI",
     role: "Technical Lead Software/AI Engineer",
     period: "May 2024 - Present",
-    type: "Current",
+    type: "+2 years",
+    logo: "/contextual_logo.png",
     description: "Leading the design and development of modular, graph-based agent frameworks for scalable AI composition.",
     highlights: [
       "Designed modular, graph-based agent framework using DDD, enabling scalable composition across research and sales teams",
@@ -17,13 +19,14 @@ const experience = [
       "Migrated orchestration to Temporal, improving evaluation success from 60% to 98% and 10x throughput",
       "Built core platform modules (evaluation, query, feedback), accelerating internal developer velocity",
     ],
-    tags: ["Agentic AI", "Temporal", "DDD", "Production ML"],
+    tags: ["Python", "Next.js", "TypeScript", "Redis", "Agentic AI", "Temporal", "DDD", "Production ML"],
   },
   {
     company: "MLCommons / Factored AI",
     role: "Senior Software / ML Engineer",
     period: "Jan 2021 - May 2024",
     type: "3+ years",
+    logo: "/mlcommons.jpg",
     description: "Tech lead for Dynabench, the collaborative AI evaluation platform used by industry leaders.",
     highlights: [
       "Tech lead for Dynabench, collaborative AI evaluation platform used by Google, Stanford, MIT, NVIDIA, and NASA",
@@ -31,33 +34,37 @@ const experience = [
       "Designed large-scale multimodal data deduplication and cleaning pipelines",
       "Collaborated with industry and academia to define evaluation benchmarks for modern ML systems",
     ],
-    tags: ["Benchmarking", "Datasets", "Open Source", "NLP"],
+    tags: ["Python", "Next.js", "TypeScript", "Benchmarking", "Datasets", "Open Source", "NLP"],
   },
   {
     company: "Iluma Alliance",
     role: "ML Engineer / Software Engineer",
     period: "Jan 2019 - Jan 2021",
     type: "2 years",
+    logo: "/iluma_logo.jpeg",
     description: "Built end-to-end analytics platforms and ML solutions for manufacturing optimization.",
     highlights: [
       "Built end-to-end analytics platform from data warehouse to dashboards",
       "Led ML and computer vision initiatives improving factory workflows by 25%",
       "Developed order tracking and logistics systems supporting 1,000+ monthly transactions",
+      "Collaborated on a computer vision system for predictive weight monitoring in pig farming",
     ],
-    tags: ["Computer Vision", "Analytics", "Data Engineering"],
+    tags: ["Python", "React", "TensorFlow", "Computer Vision", "Analytics", "Data Engineering"],
   },
   {
     company: "Quantum Leap Data / Softytec",
     role: "ML Engineer / Software Engineer",
     period: "Jan 2017 - Jan 2019",
     type: "2 years",
+    logo: "/gecko_logo.jpg",
     description: "Delivered predictive analytics and computer vision solutions for construction management.",
     highlights: [
       "Delivered predictive analytics reducing project planning errors by 20%",
       "Built construction management platform improving operational efficiency by 30%",
       "Developed computer-vision crack detection system achieving 95%+ accuracy",
+      "Scoring system for portfolio management in the animal feed industry",
     ],
-    tags: ["Predictive Analytics", "Computer Vision", "Construction Tech"],
+    tags: ["Python", "React", "TensorFlow", "Computer Vision", "Construction Tech"],
   },
 ]
 
@@ -117,56 +124,70 @@ export function ExperienceSection() {
                 variants={itemVariants}
                 className="group"
               >
-                <motion.button
-                  onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                  className={`w-full rounded-2xl border text-left transition-all duration-300 ${isExpanded
+                <motion.div
+                  layout
+                  className={`cursor-pointer rounded-2xl border transition-all duration-300 ${isExpanded
                     ? "border-primary/30 bg-card shadow-lg"
                     : "border-border bg-card/50 hover:border-border hover:bg-card hover:shadow-md"
                     }`}
-                  layout
                 >
                   <div className="p-6">
-                    {/* Header row */}
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-start gap-4">
-                        <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors ${isExpanded ? "bg-primary/10" : "bg-secondary"
-                          }`}>
-                          <Building2 className={`h-5 w-5 transition-colors ${isExpanded ? "text-primary" : "text-muted-foreground"
+                    {/* Header row - only this part toggles expand/collapse */}
+                    <button
+                      type="button"
+                      onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                      className="flex w-full cursor-pointer flex-col text-left outline-none [&:focus-visible]:ring-2 [&:focus-visible]:ring-primary [&:focus-visible]:ring-offset-2 [&:focus-visible]:rounded-xl"
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex items-start gap-4">
+                          <div className={`flex shrink-0 items-center justify-center overflow-hidden rounded-xl ${exp.logo ? "h-12 w-12" : `h-12 w-12 transition-colors ${isExpanded ? "bg-primary/10" : "bg-secondary"}`}`}>
+                            {exp.logo ? (
+                              <Image
+                                src={exp.logo}
+                                alt={`${exp.company} logo`}
+                                width={exp.company === "Contextual AI" ? 28 : 48}
+                                height={exp.company === "Contextual AI" ? 28 : 48}
+                                className={`object-contain ${exp.company === "Contextual AI" ? "h-7 w-7" : "h-full w-full p-1"}`}
+                              />
+                            ) : (
+                              <Building2 className={`h-5 w-5 transition-colors ${isExpanded ? "text-primary" : "text-muted-foreground"
+                                }`} />
+                            )}
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold text-foreground">{exp.company}</h3>
+                            <p className="text-sm text-muted-foreground">{exp.role}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="hidden items-center gap-1.5 text-xs text-muted-foreground sm:flex">
+                            <Calendar className="h-3.5 w-3.5" />
+                            <span>{exp.period}</span>
+                          </div>
+                          <span className={`rounded-full px-3 py-1 text-xs font-medium ${index === 0
+                            ? "bg-primary/10 text-primary"
+                            : "bg-secondary text-muted-foreground"
+                            }`}>
+                            {exp.type}
+                          </span>
+                          <ChevronRight className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${isExpanded ? "rotate-90" : ""
                             }`} />
                         </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-foreground">{exp.company}</h3>
-                          <p className="text-sm text-muted-foreground">{exp.role}</p>
-                        </div>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <div className="hidden items-center gap-1.5 text-xs text-muted-foreground sm:flex">
-                          <Calendar className="h-3.5 w-3.5" />
-                          <span>{exp.period}</span>
-                        </div>
-                        <span className={`rounded-full px-3 py-1 text-xs font-medium ${index === 0
-                          ? "bg-primary/10 text-primary"
-                          : "bg-secondary text-muted-foreground"
-                          }`}>
-                          {exp.type}
-                        </span>
-                        <ChevronRight className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${isExpanded ? "rotate-90" : ""
-                          }`} />
+
+                      {/* Mobile date */}
+                      <div className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground sm:hidden">
+                        <Calendar className="h-3.5 w-3.5" />
+                        <span>{exp.period}</span>
                       </div>
-                    </div>
+                    </button>
 
-                    {/* Mobile date */}
-                    <div className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground sm:hidden">
-                      <Calendar className="h-3.5 w-3.5" />
-                      <span>{exp.period}</span>
-                    </div>
-
-                    {/* Description preview */}
-                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {/* Description preview - selectable, no toggle */}
+                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground select-text">
                       {exp.description}
                     </p>
 
-                    {/* Expanded content */}
+                    {/* Expanded content - selectable, no toggle */}
                     <AnimatePresence>
                       {isExpanded && (
                         <motion.div
@@ -174,7 +195,7 @@ export function ExperienceSection() {
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="overflow-hidden"
+                          className="overflow-hidden select-text"
                         >
                           <div className="mt-6 border-t border-border pt-6">
                             <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -184,9 +205,9 @@ export function ExperienceSection() {
                               {exp.highlights.map((highlight, hIndex) => (
                                 <li
                                   key={hIndex}
-                                  className="flex gap-3 rounded-lg bg-secondary/50 p-3 text-sm leading-relaxed text-foreground"
+                                  className="flex items-start gap-3 p-3 text-sm leading-relaxed text-foreground"
                                 >
-                                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                                  <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                                   <span>{highlight}</span>
                                 </li>
                               ))}
@@ -208,7 +229,7 @@ export function ExperienceSection() {
                       )}
                     </AnimatePresence>
                   </div>
-                </motion.button>
+                </motion.div>
               </motion.div>
             )
           })}

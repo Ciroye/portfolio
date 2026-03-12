@@ -9,23 +9,10 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Juan Ciro — Staff AI/ML Engineer',
-  description: 'Staff-level AI/ML Engineer specializing in large-scale ML systems, agentic platforms, and production AI infrastructure. 16 papers at NeurIPS, ICML, ACL, Nature. Based in Medellin, Colombia.',
+  description: 'Staff-level AI/ML Engineer specializing in large-scale ML systems, agentic platforms, and production AI infrastructure. 14 papers at NeurIPS, ICML, ACL, Nature.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/icon.svg',
     apple: '/apple-icon.png',
   },
 }

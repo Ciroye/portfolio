@@ -542,8 +542,7 @@ function NodeCard({
       <text
         x={node.x + 32}
         y={node.y + 22}
-        className="fill-foreground text-[10px] font-semibold"
-        style={{ fontFamily: "var(--font-sans)" }}
+        className="fill-foreground font-sans text-[10px] font-semibold"
       >
         {node.label}
       </text>
@@ -552,8 +551,7 @@ function NodeCard({
       <text
         x={node.x + 32}
         y={node.y + 36}
-        className="fill-muted-foreground text-[9px]"
-        style={{ fontFamily: "var(--font-mono)" }}
+        className="fill-muted-foreground font-mono text-[9px]"
       >
         {node.sub}
       </text>
@@ -582,8 +580,7 @@ function SectionLabel({
     <motion.text
       x={x}
       y={y}
-      className="fill-muted-foreground text-[8px] uppercase tracking-[0.18em]"
-      style={{ fontFamily: "var(--font-mono)" }}
+      className="fill-muted-foreground font-mono text-[8px] uppercase tracking-[0.18em]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 0.45 }}
       transition={{ duration: 0.5, delay }}
@@ -599,7 +596,7 @@ export function AgentOrchestrationDiagram() {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null)
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden font-sans">
       {/* Canvas particle layer – sits on top of the SVG */}
       <FlowCanvas nodes={NODES} edges={EDGES} />
 

@@ -6,10 +6,9 @@ import { cn } from "@/lib/utils"
 const codeLines = [
   { indent: 0, text: "const juan = {", color: "text-foreground" },
   { indent: 1, text: 'role: "Technical Lead / Staff AI Engineer",', color: "text-primary" },
-  { indent: 1, text: 'location: "Medellin, Colombia",', color: "text-primary" },
   { indent: 1, text: "stack: [", color: "text-foreground" },
-  { indent: 2, text: '"React", "Next.js", "TypeScript", "Python",', color: "text-accent" },
-  { indent: 2, text: '"PyTorch", "Temporal", "Kubernetes", "LLMs"', color: "text-accent" },
+  { indent: 2, text: '"Python", "React", "Next.js", "TypeScript", "SQL"', color: "text-accent" },
+  { indent: 2, text: '"Temporal", "GCP", "AWS", "LLMs", "Docker", "Redis"', color: "text-accent" },
   { indent: 1, text: "],", color: "text-foreground" },
   { indent: 1, text: "publications: [", color: "text-foreground" },
   { indent: 2, text: '"NeurIPS (Best Paper)", "ICML", "ACL", "Nature"', color: "text-accent" },

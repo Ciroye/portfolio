@@ -52,7 +52,7 @@ export function HeroSection() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-1.5 shadow-sm backdrop-blur-md"
           >
             <MapPin className="h-3 w-3 text-primary" />
-            <span className="font-mono text-xs tracking-wide text-muted-foreground">
+            <span className="font-mono text-sm tracking-wide text-muted-foreground">
               Juan Manuel Ciro
             </span>
           </motion.div>
@@ -93,10 +93,11 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg"
           >
-            Staff-level AI/ML Engineer with +9 years of experience building
-            large-scale ML systems, agentic platforms, and production AI
-            infrastructure. Co-author of 16 papers across NeurIPS, ICML, ACL,
-            and Nature.
+            Senior AI/ML Engineer with +9 years of experience building agentic AI systems and large-scale ML infrastructure.
+
+            Currently leading the Agent Composer platform at Contextual AI, transforming RAG pipelines into modular multi-agent systems used in production.
+
+            Co-author of 14 papers across NeurIPS, ICML, ACL and Nature.
           </motion.p>
 
           <motion.div
@@ -105,15 +106,6 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 1 }}
             className="mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
           >
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="group flex items-center gap-2 rounded-lg bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
-            >
-              Open Resume
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
             <a
               href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=dOXuJdQAAAAJ"
               target="_blank"
